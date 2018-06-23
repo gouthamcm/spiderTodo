@@ -116,9 +116,10 @@ public class MainActivity extends AppCompatActivity {
     private void updateTask(long id) { Cursor cursor = myDb.getRow(id);
     if (cursor.moveToFirst()) {
         String task = etTasks.getText().toString();
+        today=Calendar.getInstance();
 
         SimpleDateFormat Timestamp= new SimpleDateFormat("dd MMM  hh:mm:ss");
-        String date = Timestamp.format(today.getTime().toString());
+        String date = Timestamp.format(today.getTime());
     myDb.updateRow(id, task, date); } cursor.close();
     }
 
